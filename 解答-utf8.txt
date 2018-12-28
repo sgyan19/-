@@ -688,6 +688,28 @@ Fpdl=Gdh，Fp= （1/cosα）1kg × g
     综上，焦点在原点，另一个焦点在θ=kπ/2 (k∈N)时
     1/r = (1±ecosθ)/(b²/a)
     
+    同理双曲线方程,c²=a²+b²
+    ((x-c)/a)² - (y/b)²=1
+    b²cos²θr²-2b²cosθcr+b²c²-a²sin²θr²=a²b²
+    (b²cos²θ - a²sin²θ)r²-2b²cosθcr +b^4=0
+    △=4(b^4)cos²θc²-4b^4(b²cos²θ - a²sin²θ) 
+     =4(b^4)a²
+    r=(2b²cosθc±√△)/(2b²cos²θ - 2a²sin²θ)
+     =(b²cosθc±b²a)/(b²cos²θ - a²sin²θ)
+     =(b²cosθc±b²a)/(c²cos²θ - a²cos²θ - a²sin²θ)
+     =(b²cosθc±b²a)/(c²cos²θ - a²cos²θ - a²sin²θ)
+     =b²(cosθc±a)/[(ccosθ+a)(ccosθ-a)]
+     =b²/(ccosθ±a)
+    1/r=(ecosθ±1)/(b²/a)
+    
+    抛物线同理
+    综上圆锥曲线极坐标
+    1/r=(1±ecosθ)/p // ±决定朝向，椭圆则是哪个焦点在原点,e不为抛物线时p为(b²/a)
+    e<1,椭圆
+    e=1,抛物线 ±决定
+    e>1,双曲线
+
+
     极坐标下开普勒三定律证明：
     A=(r''-rθ'²)i + (2r'θ'+rθ'')j
     F=-(MmG/r²)i
@@ -721,7 +743,7 @@ Fpdl=Gdh，Fp= （1/cosα）1kg × g
     r`=-u`/u²
     r``=2u`³/u³ - u``/u²
     代入化简方程为：
-    u``+u=MG/c1² // 二阶常系数线性方程 
+    u``+u=MG/c1² // 非齐次二阶常系数线性方程 
     解的形式为通解+1个特街
     特征方程
     x²+1=0
@@ -736,10 +758,39 @@ Fpdl=Gdh，Fp= （1/cosα）1kg × g
    =>u=0,v=0均是其解
      假设ODE特征根为a±bi
      那么y=e^[(a+ib)x]=[e^(ax)][e^(ibx)]
-         =e
+         =[e^(ax)][cos(bx)+isin(bx)] //欧拉公式e^(θi)=cosθ+isinθ,欧拉公式是一种关联定义，而非定理
+         =e^(ax)cos(bx) + e^(ax)sin(bx)i
+     u=e^(ax)cos(bx)
+     v=e^(ax)sin(bx)
+     // 定理：对于二阶线性其次常系数ODE，任意两个线性无关的解y1,y2即可构成c1y1+c2y2通解，即此解形式包含所有解的情况。证明方式与线性算子/方程性质相关。//“泛函分析”冰山一角已经显露
+     ODE解为 
+     y=c1u+c2v
+      =c1e^(ax)cos(bx) + c2e^(ax)sin(bx)
+      =e^(ax)[c1cos(bx)+c2sin(bx)]
      **************/
-    对于u``+u=0方程来说
-   
+    对于伴随其次方程u``+u=0来说
+    通解为u=c2cosθ+c3sinθ //因为c1已经被占用
+    原非齐次方程还需要一个特解
+    u``+u=MG/c1²
+    令u=MG/c1²，u``=0
+    显然u=MG/c1²为方程的一个特解
+    ODE通解形式为
+    u=MG/c1²+c2cosθ+c3sinθ
+    即1/r=MG/c1²+c2cosθ+c3sinθ
+    令c2cosθ+c3sinθ=Acos(θ-ψ)
+     c2cosθ+c3sinθ=Acosθcosψ+Asinθsinψ
+     c2=Acosψ
+     c3=Asinψ
+     A=√(c2²+c3²)
+     ψ=A/c3
+     //即将c2,c3作为直角边，A作为斜边，ψ为三角形斜边夹角
+     1/r=MG/c1²+Acos(θ-ψ)
+     1/r=MG/c1²+Acos(θ-ψ)
+     转动惯量I=mr²，角动量L=Iw=mr²θ' //开普勒第二定律，其实就是角动量守恒定律
+     L=mc1->c1=L/m
+     1/r=MGm²/L²+Acosθ
+     1/r=MGm/L²[1+(AL²/MGm)cos(θ-ψ)] //开普勒第一定律得证，圆锥曲线
+     e=AL²/MGm 当e<1为椭圆，e=1为抛物线，e>1为双曲线
 
 
     //----------------------------
